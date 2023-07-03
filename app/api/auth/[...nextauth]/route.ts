@@ -3,8 +3,6 @@ import { connectToDB } from "@utils/database";
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
-
-
 const handler = NextAuth({
   providers: [
     GoogleProvider({
@@ -38,7 +36,7 @@ const handler = NextAuth({
         email: session?.user?.email,
       });
 
-      user.id = sessionUser?._id.toString();
+      console.log(sessionUser);
 
       return session;
     },
