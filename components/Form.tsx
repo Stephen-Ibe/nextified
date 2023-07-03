@@ -18,6 +18,14 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }: Props) => {
         {type} and share amazing prompts with the world, and let your
         imagination run wild with any AI-powered platform
       </p>
+
+      <form className="flex flex-col w-full max-w-2xl mt-10 gap-7 glassmorphism">
+        <label>
+          <span className="text-base font-semibold text-gray-700 font-satoshi">
+            Your AI Prompt
+          </span>
+        </label>
+      </form>
     </section>
   );
 };
