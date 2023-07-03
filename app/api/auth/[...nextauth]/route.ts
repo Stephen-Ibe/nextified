@@ -36,7 +36,7 @@ const handler = NextAuth({
         email: session?.user?.email,
       });
 
-      console.log(sessionUser);
+      console.log(sessionUser, session);
 
       return session;
     },
