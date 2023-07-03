@@ -15,7 +15,7 @@ export const connectToDB = async () => {
       process.env.MONGODB_URI ??
         "mongodb+srv://admin:admin@cluster0.i3skb.mongodb.net/?retryWrites=true&w=majority",
       {
-        dbName: "admin",
+        dbName: "natours",
       }
     );
 

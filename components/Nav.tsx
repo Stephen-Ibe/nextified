@@ -3,16 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { getProviders, signIn, signOut } from "next-auth/react";
+import { getProviders, useSession, signIn, signOut } from "next-auth/react";
 
 const Nav = () => {
   const isUserLoggedIn = true;
+
+  const { data: session } = useSession();
+
+  console.log(session);
 
   const [providers, setProviders] = useState<any>(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   const updateProviders = async () => {
     const res = await getProviders();
+    console.log(res);
     setProviders(res);
   };
 
