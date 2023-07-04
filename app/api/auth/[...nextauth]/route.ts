@@ -36,7 +36,7 @@ const handler = NextAuth({
         email: session?.user?.email,
       });
 
-      session.user.email = sessionUser.email;
+      session.user.id = sessionUser.id;
 
       console.log(sessionUser, session);
 
