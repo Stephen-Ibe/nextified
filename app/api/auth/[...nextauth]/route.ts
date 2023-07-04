@@ -31,10 +31,12 @@ const handler = NextAuth({
         return false;
       }
     },
-    async session({ session, user }) {
+    async session({ session }) {
       const sessionUser = await User.findOne({
         email: session?.user?.email,
       });
+
+      session.user.email = sessionUser.email;
 
       console.log(sessionUser, session);
 

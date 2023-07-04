@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type Props = {
@@ -24,7 +25,45 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }: Props) => {
           <span className="text-base font-semibold text-gray-700 font-satoshi">
             Your AI Prompt
           </span>
+          <textarea
+            value={post.prompt}
+            onChange={(e) => setPost({ ...post, prompt: e.target.value })}
+            placeholder="Write your post here"
+            required
+            className="form_textarea "
+          />
         </label>
+
+        <label>
+          <span className="text-base font-semibold text-gray-700 font-satoshi">
+            Field of Prompt{" "}
+            <span className="font-normal">
+              (#product, #webdevelopment, #idea, etc.)
+            </span>
+          </span>
+          <input
+            value={post.tag}
+            onChange={(e) => setPost({ ...post, tag: e.target.value })}
+            type="text"
+            placeholder="#Tag"
+            required
+            className="form_input"
+          />
+        </label>
+
+        <div className="gap-4 mx-3 mb-5 flex-end">
+          <Link href="/" className="text-sm text-gray-500">
+            Cancel
+          </Link>
+
+          <button
+            type="submit"
+            disabled={submitting}
+            className="px-5 py-2 text-sm text-white rounded-full bg-primary-orange"
+          >
+            {submitting ? `${type}ing...` : type}
+          </button>
+        </div>
       </form>
     </section>
   );
